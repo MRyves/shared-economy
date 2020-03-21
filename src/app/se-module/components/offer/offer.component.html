@@ -1,5 +1,31 @@
-<div class="card">
-    <pre>
-        {{offer | json}}
-    </pre>
+<div class="row">
+  <div class="col-lg-8 col-md-12">
+    <div class="row">
+      <div class="col">
+        <h5>{{offer.title}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{offer.description}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">Location:</div>
+      <div class="col">{{offer.city}}</div>
+    </div>
+    <div class="row">
+      <div class="col-2">Price</div>
+      <div class="col">{{offer.price}}</div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-12">
+    <div class="card">
+      <div class="card-body text-center">
+        <fa-icon icon="user" size="5x"></fa-icon>
+        <h5>{{offer.offeringUser.username}}</h5>
+        <a [href]="'mailto:' + offer.offeringUser.email">Send him an E-Mail</a>
+      </div>
+    </div>
+  </div>
 </div>
