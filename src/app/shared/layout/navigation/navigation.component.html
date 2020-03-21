@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">SharedEconomy &copy;</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li [routerLink]="['']" routerLinkActive="active"  class="nav-item">
+                <a class="nav-link" href="#">Offers <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+    <ul class="navbar-nav ml-auto">
+        <li [routerLink]="['profile']" routerLinkActive="active" class="nav-item">
+            <span class="navbar-text mr-2">{{user.username}}</span>
+            <fa-icon icon="user-circle"></fa-icon>
+        </li>
+    </ul>
+</nav>
