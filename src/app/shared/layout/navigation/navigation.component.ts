@@ -18,4 +18,7 @@ export class NavigationComponent implements OnInit {
         this.user = this.authService.currentUserValue;
     }
 
+  logout() {
+    this.authService.logout();
+  }
 }

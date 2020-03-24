@@ -1,5 +1,5 @@
-<div class="row">
-    <div *ngFor="let offer of offers" class="col">
-        <app-offer [offer]="offer"></app-offer>
-    </div>
-</div>
+<accordion [isAnimated]="true">
+  <accordion-group *ngFor="let offer of offers" [heading]="offer.title">
+    <app-offer [offer]="offer"></app-offer>
+  </accordion-group>
+</accordion>
