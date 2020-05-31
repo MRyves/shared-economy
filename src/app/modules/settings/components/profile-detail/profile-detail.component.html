@@ -1,0 +1,41 @@
+<div fxLayout="row" fxLayoutAlign="center">
+    <mat-card fxFlex="75" fxFlex.xs="100" fxFlexAlign="end">
+        <mat-card-content>
+            <form (ngSubmit)="submit()" [formGroup]="userForm" fxLayout="column">
+                <mat-form-field>
+                    <input disabled formControlName="username" matInput placeholder="Username" type="text">
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="firstName" matInput placeholder="First name" required type="text">
+                    <mat-error>
+                        If you don't have a first name, define one!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="lastName" matInput placeholder="Last name" required type="text">
+                    <mat-error>
+                        If you don't have a last name, define one!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="email" matInput placeholder="E-Mail" required type="email">
+                    <mat-error>
+                        You have to have an e-mail address!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea formControlName="bio" matInput label="Bio"
+                              placeholder="Write something about you"></textarea>
+                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+                    <button fxFlex.xs="50" [disabled]="submitted || userForm.invalid" color="primary" mat-raised-button>
+                        UPDATE!
+                    </button>
+                    <button fxFlex.xs="50" mat-raised-button color="warn" role="button" (click)="deleteProfile()">
+                        DELETE!
+                    </button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

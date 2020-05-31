@@ -1,0 +1,43 @@
+<!-- readonly section -->
+<ng-container *ngIf="!isEligibleForChange && offer">
+    <app-offer [offer]="offer"></app-offer>
+</ng-container>
+<!-- edit section -->
+<ng-container *ngIf="isEligibleForChange && offer">
+    <div fxLayout="row" fxLayoutAlign="center">
+        <mat-card fxFlex="75" fxFlex.xs="100" fxFlexAlign="end">
+            <mat-card-content>
+                <form (ngSubmit)="updateOffer()" [formGroup]="offerForm" fxLayout="column">
+                    <mat-form-field>
+                        <input formControlName="title" matInput placeholder="Title" required type="text">
+                        <mat-error>
+                            How should others see your offer, without a title?
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <textarea formControlName="description" matInput placeholder="Description" required></textarea>
+                        <mat-error>
+                            Describe what you are offering...
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="price" matInput placeholder="Price" required type="number">
+                        <mat-error>
+                            We're sorry, but free offers are not allowed!
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="city" matInput placeholder="City" required type="text">
+                        <mat-error>Where are you offering your service or product?</mat-error>
+                    </mat-form-field>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+                        <button [disabled]="offerForm.invalid" color="primary"
+                                mat-raised-button>{{actionButtonText}}</button>
+                        <button mat-raised-button color="warn" role="button">DELETE</button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</ng-container>
+

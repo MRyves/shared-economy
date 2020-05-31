@@ -1,0 +1,19 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let offer of offers" hideToggle>
+        <mat-expansion-panel-header fxLayoutAlign="space-between center">
+            <mat-panel-title fxFlex.gt-sm="30">
+                {{ offer.title }} from {{ offer.user.email }}
+            </mat-panel-title>
+            <mat-panel-description fxFlex fxLayoutAlign.gt-sm="space-between center" fxLayoutAlign="end">
+                <span fxHide fxShow.gt-sm>{{ offer.description |  slice:0:100 }}...</span>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    {{ offer.user.city.name }}
+                    <mat-icon>my_location</mat-icon>
+                </div>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-offer [offer]="offer"
+                   (outEditOffer)="editOffer($event)"
+                   (outDeleteOffer)="deleteOffer($event)"></app-offer>
+    </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,43 @@
+<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="10px">
+    <mat-card fxFlex.gt-sm="70" fxLayout="column">
+        <mat-card-header>
+            <div fxLayout="row" fxLayoutAlign="center center" mat-card-avatar>
+                <mat-icon mat-card-avatar>local_offer</mat-icon>
+            </div>
+            <mat-card-title>{{offer.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxFlex>
+            <p>{{offer.description}}</p>
+            <p>{{offer.pricing.price}} {{offer.pricing.currency.currencyShortcode}}</p>
+            <p>{{offer.user.city.name}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button *ngIf="!isMyOffer" [routerLink]="['/offers', offer.id]" color="primary" mat-button>
+                VIEW
+            </button>
+            <button *ngIf="isMyOffer" (click)="editOffer()" color="primary" mat-button>
+                EDIT
+            </button>
+            <button *ngIf="isMyOffer" (click)="deleteOffer()" color="warn" mat-button>
+                DELETE
+            </button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card fxFlex fxLayout="column">
+        <mat-card-header>
+            <div fxLayout="row" fxLayoutAlign="center center" mat-card-avatar>
+                <mat-icon>account_box</mat-icon>
+            </div>
+            <mat-card-title>{{offer.user.email}}</mat-card-title>
+            <mat-card-subtitle>{{offer.user.firstName}} {{offer.user.lastName}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content fxFlex>
+            <p *ngIf="offer.user.bio">{{offer.user.bio}}</p>
+            <p *ngIf="!offer.user.bio">User does not have a bio. Send him an E-Mail with a friendly reminder to
+                create one!</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <a [href]="'mailto://' + offer.user.email" color="primary" mat-button>EMAIL</a>
+        </mat-card-actions>
+    </mat-card>
+</div>

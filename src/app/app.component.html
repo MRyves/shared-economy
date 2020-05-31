@@ -1,0 +1,8 @@
+<div fxLayout="column">
+    <app-navigation *ngIf="showNavigation"></app-navigation>
+    <ngx-spinner type="ball-grid-pulse" fullScreen="true">
+        <p class="text-white" style="padding-top: 120px">Loading awesomeness...</p>
+    </ngx-spinner>
+    <app-alert></app-alert>
+    <router-outlet></router-outlet>
+</div>

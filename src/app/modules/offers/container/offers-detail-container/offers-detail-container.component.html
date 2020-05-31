@@ -1,0 +1,4 @@
+<div *ngIf="selectedOffer | async">
+    <app-offer-detail [offer]="selectedOffer | async"
+                      [isEligibleForChange]="isEligibleForChange | async" (outOfferUpdate)="updateOffer($event)"></app-offer-detail>
+</div>
