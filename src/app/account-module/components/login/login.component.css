@@ -1,0 +1,11 @@
+div[fxLayout] {
+    padding-top: 20px;
+}
+
+mat-card {
+    text-align: center;
+}
+
+mat-form-field {
+    width: 100%;
+}

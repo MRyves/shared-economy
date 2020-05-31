@@ -1,0 +1,35 @@
+<div fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
+    <mat-card>
+        <mat-card-content>
+            <form (ngSubmit)="loginSubmit()" [formGroup]="loginForm">
+                <h2>Log In</h2>
+                <mat-error *ngIf="submitted && loginForm.invalid">
+                    The username and password were not recognised
+                </mat-error>
+                <mat-form-field>
+                    <input formControlName="username" matInput placeholder="Username" required>
+                    <mat-error>
+                        Username is required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="password" matInput placeholder="Password" required type="password">
+                    <mat-error>
+                        Password is required
+                    </mat-error>
+                </mat-form-field>
+                <button [disabled]="submitted || loginForm.invalid" color="primary" mat-raised-button>Login</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-content>
+            <blockquote class="blockquote">
+                <h5>"Sharing is caring"</h5>
+                <footer class="blockquote-footer">SharedEconomy Team &copy; 2020</footer>
+            </blockquote>
+            <img alt="sharing is caring art" class="card-img-bottom rounded mx-auto d-block"
+                 src="assets/img/sharing.svg" style="width: 100px; height: 100px">
+        </mat-card-content>
+    </mat-card>
+</div>

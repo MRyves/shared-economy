@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field appearance="outline" fxFlex fxFlex.gt-md="70">
+        <mat-icon matPrefix>search</mat-icon>
+        <mat-label>Search offer</mat-label>
+        <input [(ngModel)]="filter" matInput type="text">
+    </mat-form-field>
+</div>
+<app-offers [offers]="offers | async | filter:filter"
+            (outEditOffer)="editOffer($event)"
+            (outDeleteOffer)="deleteOffer($event)"></app-offers>

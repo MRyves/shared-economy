@@ -1,0 +1,35 @@
+<div fxLayout="column">
+    <mat-toolbar class="mat-elevation-z4" color="primary" style="z-index: 10">
+        <mat-toolbar-row fxLayoutAlign="space-between center">
+            <a mat-button [routerLink]="['']">
+                <mat-icon fxHide.gt-sm>home</mat-icon>
+                <h5 fxHide.lt-sm>SharedEconomy &copy;</h5>
+            </a>
+            <button mat-raised-button color="accent" (click)="openOfferDialog()">
+                <mat-icon>add</mat-icon>
+                Offer
+            </button>
+            <button mat-button [matMenuTriggerFor]="appMenu">
+                <span fxHide.lt-sm>{{user.username}}</span>
+                <mat-icon>face</mat-icon>
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+        </mat-toolbar-row>
+        <mat-menu #appMenu="matMenu">
+            <button mat-menu-item [routerLink]="['settings']">
+                <mat-icon>account_box</mat-icon>
+                Profile
+            </button>
+            <button mat-menu-item [routerLink]="['offers', 'my']">
+                <mat-icon>local_offer</mat-icon>
+                My Offers
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="logout()" [routerLink]="['login']">
+                <mat-icon>exit_to_app</mat-icon>
+                LogOut
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+    <app-section-header [title]="title | async"></app-section-header>
+</div>

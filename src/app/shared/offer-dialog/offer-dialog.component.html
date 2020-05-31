@@ -1,0 +1,33 @@
+<form [formGroup]="offerForm" fxLayout="column">
+    <div mat-dialog-content fxLayout="column">
+        <mat-form-field>
+            <input formControlName="title" matInput placeholder="Title" required type="text">
+            <mat-error>
+                How should others see your offer, without a title?
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea formControlName="description" matInput placeholder="Description" required></textarea>
+            <mat-error>
+                Describe what you are offering...
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="price" matInput placeholder="Price" required type="number">
+            <mat-error>
+                We're sorry, but free offers are not allowed!
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="city" matInput placeholder="City" required type="text">
+            <mat-error>Where are you offering your service or product?</mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+        <button [disabled]="offerForm.invalid" (click)="save()" color="primary"
+                mat-raised-button>SAVE
+        </button>
+        <button mat-raised-button (click)="cancel()" color="accent" role="button">CANCEL</button>
+    </div>
+
+</form>

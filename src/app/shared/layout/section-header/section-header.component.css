@@ -1,0 +1,7 @@
+.section-header {
+    padding-left: 15px;
+    padding-top: 15px;
+    background-color: #7986CB;
+    color: white;
+    z-index: 9;
+}
